@@ -10,7 +10,7 @@ public class Variable {
 		char name2 = '길';
 		char name3 = '동';
 		//출력
-		System.out.println(ages);
+		System.out.println(age);
 		System.out.println(name);
 		System.out.println(aged);
 		System.out.println(flag);
