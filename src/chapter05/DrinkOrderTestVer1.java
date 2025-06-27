@@ -15,6 +15,7 @@ public class DrinkOrderTestVer1 {
 		int change = 0;
 		String menuPriceOutput = "";
 		boolean paymentFlag = true;
+		String changeOutput = "";
 		
 		// step 1 : 메뉴판 출력
 		System.out.println("[시작]");
@@ -78,6 +79,9 @@ public class DrinkOrderTestVer1 {
 						System.out.println("=> 금액이 부족합니다. 다시 입력해주세요.");
 						paymentFlag = true;
 					}
+					
+					changeOutput = String.format("%,d", new Object[] {Integer.valueOf(change)});
+					
 				} else {
 					System.out.println("올바르지 않은 입력값 입니다.");
 					scan.next();
@@ -91,7 +95,7 @@ public class DrinkOrderTestVer1 {
 			
 			
 			// step 4 : 주문 완료
-			System.out.println("=> 결제 완료! 잔돈 : " + change + "원");
+			System.out.println("=> 결제 완료! 잔돈 : " + changeOutput + "원");
 			System.out.println("[종료]");
 			System.out.println("이용해주셔서 감사합니다.");
 			System.exit(0);
