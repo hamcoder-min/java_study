@@ -67,25 +67,6 @@ public class LunchOrderTestVer2 {
 			
 		}// while - menuNo
 			
-			
-			/*
-			if(menuNo == 1) {
-				System.out.println("햄버거(🍔)");
-			} else if (menuNo == 2) {
-				System.out.println("피자(🍕)");
-			} else if (menuNo == 3) {
-				System.out.println("라멘(🍜)");
-			} else if (menuNo == 4) {
-				System.out.println("샐러드(🥗)");
-			} else if (menuNo == 9) {
-				System.out.println("-- 프로그램을 종료합니다 --");
-				System.exit(0);
-			} else {
-				System.out.println("메뉴가 준비중입니다.");
-			}
-			*/
-			
-		
 			System.out.println("주문하신 메뉴는 " + menuName + ", 가격은 " + menuPrice + "원 입니다.");
 		
 		// 2. 주문 메뉴 결제
