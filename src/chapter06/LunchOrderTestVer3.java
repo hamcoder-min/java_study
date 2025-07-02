@@ -108,7 +108,7 @@ public class LunchOrderTestVer3 {
 					}
 					System.out.println("============================================\n");
 				} else {
-					System.out.println("주문 내역 없음!");
+					System.out.println("=> 주문 내역 없음!");
 				}
 				break;
 			case 3 : // 음식 결제
@@ -116,82 +116,91 @@ public class LunchOrderTestVer3 {
 				int charge = 0;
 				int change = 0;
 				int totalPayment = 0;
-				for(int i=0; i<count; i++) {
-					totalPayment += orderPriceList[i];
-				}
-				while (paymentFlag) {	// 결제요금 부족시 반복 실행
-						// 결제 예정 금액 출력 : orderPriceList
-					System.out.println("=> 결제 예정 금액 : " + totalPayment);
-					System.out.print("결제할 요금 입력(숫자로) > ");
-					
-					if(scan.hasNextInt()) {
-						charge += scan.nextInt();
-						System.out.println("=> 총 입력 금액 : " + charge);
-
-						if (charge >= totalPayment) {
-							change = charge - totalPayment;
-							
-							paymentFlag = false;
+				
+				if(paymentCount !=0) {
+					for(int i=0; i<count; i++) {
+						totalPayment += orderPriceList[i];
+					}
+					while (paymentFlag) {	// 결제요금 부족시 반복 실행
+							// 결제 예정 금액 출력 : orderPriceList
+						System.out.println("=> 결제 예정 금액 : " + totalPayment);
+						System.out.print("결제할 요금 입력(숫자로) > ");
+						
+						if(scan.hasNextInt()) {
+							charge += scan.nextInt();
+							System.out.println("=> 총 입력 금액 : " + charge);
+	
+							if (charge >= totalPayment) {
+								change = charge - totalPayment;
+								
+								paymentFlag = false;
+								
+							} else {
+								System.out.println("❗요금이 부족합니다. 다시 입력해주세요❗");
+							}
 							
 						} else {
-							System.out.println("❗요금이 부족합니다. 다시 입력해주세요❗");
-						}
-						
-					} else {
-						System.out.println("올바르지 않은 입력값입니다. 다시 입력해주세요.");
-						scan.next();
-					}//if
-				}// while - payment
+							System.out.println("올바르지 않은 입력값입니다. 다시 입력해주세요.");
+							scan.next();
+						}//if
+					}// while - payment
 				
-
-				paymentMenuList[paymentCount] = orderMenuList[0] + "등...";
-				totalAmountList[paymentCount] = totalPayment;
-				paidAmountList[paymentCount] = charge;
-				changeList[paymentCount] = change;
-				System.out.println("=> 결제 완료!");
-				System.out.println("------------------------------------------------------------");
-				System.out.println("\t주문메뉴\t\t결제금액\t\t입금금액\t\t잔돈");
-				System.out.println("------------------------------------------------------------");
-				System.out.print("\t" + paymentMenuList[paymentCount] + "\t");
-				System.out.print(totalAmountList[paymentCount] + "\t\t");
-				System.out.print(paidAmountList[paymentCount] + "\t\t");
-				System.out.print(changeList[paymentCount] + "\n");
-				System.out.println();
-				System.out.println("------------------------------------------------------------");
-				
-				// orderMenuList, orderPriceList 초기화
-//				for(int i = 0; i<count; i++) {
-//					orderMenuList[i] = null;
-//					orderPriceList[i] = 0;
-//					
-//				}
-				orderMenuList = new String[MAX_SIZE];
-				orderPriceList = new int[MAX_SIZE];
-				
-				count = 0;	// order count
-				paymentCount++;
-				
-				break;
-			case 4 :
-				System.out.println("------------------------------------------------------------");
-				System.out.println("\t\t\t결제 내역");
-				System.out.println("------------------------------------------------------------");
-				System.out.println("번호\t주문메뉴\t\t결제금액\t\t입금금액\t\t잔돈");
-				System.out.println("------------------------------------------------------------");
-				for(int i = 0; i < paymentCount; i++) {
-					System.out.print((i+1));
-					System.out.print("\t" + paymentMenuList[i] + "\t");
-					System.out.print(totalAmountList[i] + "\t\t");
-					System.out.print(paidAmountList[i] + "\t\t");
-					System.out.print(changeList[i] + "\t\n");
+	
+					paymentMenuList[paymentCount] = orderMenuList[0] + "등...";
+					totalAmountList[paymentCount] = totalPayment;
+					paidAmountList[paymentCount] = charge;
+					changeList[paymentCount] = change;
+					System.out.println("=> 결제 완료!");
+					System.out.println("------------------------------------------------------------");
+					System.out.println("\t주문메뉴\t\t결제금액\t\t입금금액\t\t잔돈");
+					System.out.println("------------------------------------------------------------");
+					System.out.print("\t" + paymentMenuList[paymentCount] + "\t");
+					System.out.print(totalAmountList[paymentCount] + "\t\t");
+					System.out.print(paidAmountList[paymentCount] + "\t\t");
+					System.out.print(changeList[paymentCount] + "\n");
+					System.out.println();
+					System.out.println("------------------------------------------------------------");
+					
+					// orderMenuList, orderPriceList 초기화
+	//				for(int i = 0; i<count; i++) {
+	//					orderMenuList[i] = null;
+	//					orderPriceList[i] = 0;
+	//					
+	//				}
+					orderMenuList = new String[MAX_SIZE];
+					orderPriceList = new int[MAX_SIZE];
+					
+					count = 0;	// order count
+					paymentCount++;
+				} else {
+					System.out.println("=> 주문 내역 없음!");
 				}
-				System.out.println();
-				System.out.println("------------------------------------------------------------");
-				break;
-			case 9 :
-				System.out.println("-- 프로그램 종료 --");
-				System.exit(0);
-				break;
+					
+					break;
+			case 4 :
+				if(paymentCount != 0) {
+					System.out.println("------------------------------------------------------------");
+					System.out.println("\t\t\t결제 내역");
+					System.out.println("------------------------------------------------------------");
+					System.out.println("번호\t주문메뉴\t\t결제금액\t\t입금금액\t\t잔돈");
+					System.out.println("------------------------------------------------------------");
+					for(int i = 0; i < paymentCount; i++) {
+						System.out.print((i+1));
+						System.out.print("\t" + paymentMenuList[i] + "\t");
+						System.out.print(totalAmountList[i] + "\t\t");
+						System.out.print(paidAmountList[i] + "\t\t");
+						System.out.print(changeList[i] + "\t\n");
+					}
+					System.out.println();
+					System.out.println("------------------------------------------------------------");
+				} else {
+					System.out.println("=> 결제 내역 없음!");
+				}
+					break;
+				case 9 :
+					System.out.println("-- 프로그램 종료 --");
+					System.exit(0);
+					break;
 			default : 
 				System.out.println("메뉴 준비중입니다!\n\n");
 			}
