@@ -22,7 +22,9 @@ public class User {
 		}
 		return false;
 	}
-	
+	/*
+	 * 동전 입력
+	 */
 	public int insertCoin() {
 		// 동전 체크 : 100원, 500원만 입력 가능
 		int coin = scan.nextInt();
