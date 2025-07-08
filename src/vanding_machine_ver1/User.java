@@ -26,15 +26,27 @@ public class User {
 	 * 동전 입력
 	 */
 	public int insertCoin() {
-		// 동전 체크 : 100원, 500원만 입력 가능
-		int coin = scan.nextInt();
-		resultCoin = coin;
-//		if(coinCheck(coin)) {
-//			
-//		}
+		int resultCoin = 0;
+		System.out.println("[" + name + "] 동전입력 > ");
+		if(scan.hasNextInt()) {
+			// 동전 체크 : 100원, 500원만 입력 가능
+			int coin = scan.nextInt();
+			resultCoin = coin;
+	//		if(coinCheck(coin)) {
+	//			
+	//		}
+		} else {
+			System.out.println("=> 올바르지 않은 값입니다. 다시 입력해주세요!");
+			scan.next();
+			insertCoin();
+		}
+		return resultCoin;
 		
 	}
 	
+	/*
+	 * 메뉴 선택
+	 */
 	
 	public int selectMenu() {
 		int menu = 0;
@@ -49,6 +61,4 @@ public class User {
 		
 		return menu;
 	}
-	
-	selectMenu() {}
 }
