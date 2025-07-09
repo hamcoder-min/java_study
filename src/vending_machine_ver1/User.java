@@ -1,4 +1,4 @@
-package vanding_machine_ver1;
+package vending_machine_ver1;
 
 import java.util.Scanner;
 
@@ -15,19 +15,13 @@ public class User {
 	}
 	
 	// Method
-	public boolean coinCheck(int coin) {
-		boolean result = false;
-		if(coin == 100 || coin == 500) {
-			result = true;
-		}
-		return false;
-	}
+
 	/*
 	 * 동전 입력
 	 */
 	public int insertCoin() {
 		int resultCoin = 0;
-		System.out.println("[" + name + "] 동전입력 > ");
+		System.out.print("[" + name + "] 동전입력 > ");
 		if(scan.hasNextInt()) {
 			// 동전 체크 : 100원, 500원만 입력 가능
 			int coin = scan.nextInt();
@@ -50,7 +44,7 @@ public class User {
 	
 	public int selectMenu() {
 		int menu = 0;
-		System.out.println("[" + name + "] 메뉴선택 > ");
+		System.out.print("[" + name + "] 메뉴선택 > ");
 		if(scan.hasNextInt()) {
 			menu = scan.nextInt();
 		} else {
