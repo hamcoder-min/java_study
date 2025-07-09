@@ -5,7 +5,6 @@ public class RestArea {
 	User user;
 	VendingMachine machine;
 	
-	
 	public RestArea() {
 		this("더조은");
 	}

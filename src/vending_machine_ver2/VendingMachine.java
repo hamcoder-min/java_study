@@ -30,7 +30,6 @@ public class VendingMachine {
 		createMenuList();
 		showMenuList();
 		checkInsertCoin();
-		
 	}
 	
 	//Method
