@@ -1,6 +1,6 @@
 package kbank;
 
-public class KBBank {
+public class KBBankTest {
 
 	public static void main(String[] args) {
 		// 입출금 용지 한장 비치됨
