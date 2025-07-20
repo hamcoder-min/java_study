@@ -50,7 +50,6 @@ public class ScoreServiceImpl implements ScoreService {
 
 	/**
 	 * 학생 정보 임시 저장 객체 생성 - 수정용으로 사용
-	 * 
 	 * @param no 학번
 	 * @return List
 	 */
@@ -58,7 +57,7 @@ public class ScoreServiceImpl implements ScoreService {
 		String[] labels = { "국어", "영어", "수학" };
 		List memberInfo = new ArrayList();
 
-		System.out.println("\n학번 : " + member.getNo() + ", " + "학생명 : " + member.getName());
+		System.out.println("\n학번 : " + member.getNo() + ", 학생명 : " + member.getName());
 
 		for (int i = 0; i < labels.length; i++) {
 			System.out.print(labels[i] + " > ");

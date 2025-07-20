@@ -69,6 +69,4 @@ public class ScoreMgmSystem {
 		System.out.println("\t\t6. 종료");
 		System.out.println("===========================================");
 	}
-	
-	
 }
