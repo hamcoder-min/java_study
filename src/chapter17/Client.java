@@ -16,7 +16,7 @@ public class Client {
 
 	public static void main(String[] args) {
 		try {
-			String id = "이순신";
+			String id = "홍길동";
 			final String HOST = "localhost";
 			final int PORT = 9000;
 			Frame f = new Frame("채팅 클라이언트");
