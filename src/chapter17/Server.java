@@ -37,7 +37,6 @@ public class Server {
 
 }//Server
 
-
 class ClientHandler extends Thread {
 	Socket s;
 	DataOutputStream output;
