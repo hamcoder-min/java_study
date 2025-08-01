@@ -1,4 +1,4 @@
-package com.bookmgm.repository;
+package com.bookmgm_exercise.repository;
 
 import java.util.ArrayList;
 import java.util.Iterator;

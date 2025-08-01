@@ -6,7 +6,7 @@ public interface ScoreService {
 	int getCount();
 	public void list();
 	public void search();
-//	public void update();
-//	public void delete();
+	public void update();
+	public void delete();
 	
 }

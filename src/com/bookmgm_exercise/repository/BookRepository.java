@@ -1,4 +1,4 @@
-package com.bookmgm.repository;
+package com.bookmgm_exercise.repository;
 
 import java.util.List;
 import com.bookmgm.model.BookVo;

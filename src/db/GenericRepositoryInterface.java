@@ -2,13 +2,12 @@ package db;
 
 import java.util.List;
 
-import com.scoremgm.model.MemberVo;
-
 public interface GenericRepositoryInterface<T> {
 	int insert(T entity);
-	int getCount();
 	List<T> findAll();
+	int getCount();
 	T find(String id);
-//	int remove(String no);
-//	int update(T entity);
+	int update(T entity);
+	int remove(String id);
+	void close();
 }

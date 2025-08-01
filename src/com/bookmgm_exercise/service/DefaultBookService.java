@@ -1,13 +1,13 @@
-package com.bookmgm.service;
+package com.bookmgm_exercise.service;
 
 import java.util.List;
 import java.util.Random;
 
-import com.bookmgm.application.BookManagementApplication;
-import com.bookmgm.model.BookVo;
-import com.bookmgm.repository.AladinBookRepository;
-import com.bookmgm.repository.InMemoryBookRepository;
-import com.bookmgm.repository.Yes24BookRepository;
+import com.bookmgm_exercise.application.BookManagementApplication;
+import com.bookmgm_exercise.model.BookVo;
+import com.bookmgm_exercise.repository.AladinBookRepository;
+import com.bookmgm_exercise.repository.InMemoryBookRepository;
+import com.bookmgm_exercise.repository.Yes24BookRepository;
 
 import db.GenericRepositoryInterface;
 
@@ -71,11 +71,11 @@ public class DefaultBookService implements BookService{
 		System.out.print("도서관 선택 > ");
 		int rno = bma.scan.nextInt();
 		if(rno == 1) {
-			repository = new InMemoryBookRepository();
+			repository = new InMemoryBookRepository(1);
 		} else if(rno == 2) {
-			repository = new AladinBookRepository();
+			repository = new InMemoryBookRepository(2);
 		} else if(rno == 3) {
-			repository = new Yes24BookRepository();
+			repository = new InMemoryBookRepository(3);
 		}
 	}
 	

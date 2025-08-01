@@ -1,4 +1,4 @@
-package com.bookmgm.repository;
+package com.bookmgm_exercise.repository;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,19 +9,19 @@ import com.bookmgm.model.BookVo;
 import db.DBConn;
 import db.GenericRepositoryInterface;
 
-public class AladinBookRepository extends DBConn implements GenericRepositoryInterface<BookVo>{
+public class Yes24BookRepository extends DBConn implements GenericRepositoryInterface<BookVo>{
 	List<BookVo> library = new ArrayList<BookVo>();
 	
-	public AladinBookRepository() {
+	public Yes24BookRepository() {
 		super();
-		System.out.println("** 알라딘 도서관 생성 완료 **");
+		System.out.println("** 예스24 도서관 생성 완료 **");
 	}
 
 	@Override
 	public int insert(BookVo book) {
 		int rows = 0;
 		String sql = """
-					insert into book_aladin(title, author, price, isbn, bdate)
+					insert into book_yes24(title, author, price, isbn, bdate)
 						values(?, ?, ?, ?, now())
 				""";
 		try {
@@ -38,15 +38,32 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 		}
 		
 		return rows;
+	}
+	
+	@Override
+	public int getCount() {
+		int rows = 0;
+		String sql = """
+				select count(*) from book_yes24
+				""";
+		try {
+			getPreparedStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) rows = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
+		return rows;
 	}
 	
 	@Override
 	public List<BookVo> findAll() {
 		List<BookVo> list = new ArrayList<BookVo>();
 		String sql = """
-					select row_number() over() as ron, bid, title, author, price, isbn, bdate
-					from book_aladin
+					select row_number() over() as rno, bid, title, author, price, isbn, bdate
+					from book_yes24
 				""";
 		try {
 			getPreparedStatement(sql);
@@ -62,7 +79,6 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 				book.setBdate(rs.getString(7));
 				
 				list.add(book);
-				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,7 +92,7 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 		BookVo book = null;
 		String sql = """
 					select bid, title, author, price, isbn, bdate
-					from	book_aladin
+					from book_yes24
 					where bid = ?
 				""";
 		try {
@@ -91,12 +107,11 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 				book.setPrice(rs.getInt(4));
 				book.setIsbn(rs.getInt(5));
 				book.setBdate(rs.getString(6));
-				
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return book;
 	}
 	
@@ -104,7 +119,7 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 	public int update(BookVo book) {
 		int rows = 0;
 		String sql = """
-					update book_aladin
+					update book_yes24
 						set title = ?, author = ?, price = ?
 					where bid = ?
 				""";
@@ -116,11 +131,9 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 			pstmt.setString(4, book.getBid());
 			
 			rows = pstmt.executeUpdate();
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return rows;
 	}
 	
@@ -128,18 +141,17 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 	public int remove(String bid) {
 		int rows = 0;
 		String sql = """
-					delete from book_aladin
+					delete from book_yes24
 					where bid = ?
 				""";
 		try {
 			getPreparedStatement(sql);
 			pstmt.setString(1, bid);
-			rows = pstmt.executeUpdate();
 			
+			rows = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return rows;
 	}
 	
@@ -151,23 +163,4 @@ public class AladinBookRepository extends DBConn implements GenericRepositoryInt
 //			if(b == book) ie.remove();
 //		}
 //	}
-	
-	
-	
-	@Override
-	public int getCount() {
-		int rows = 0;
-		String sql = """
-					select count(*) from book_aladin
-				""";
-		try {
-			getPreparedStatement(sql);
-			rs = pstmt.executeQuery();
-			while(rs.next()) rows = rs.getInt(1);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return rows;
-	}
 }
