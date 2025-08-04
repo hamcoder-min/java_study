@@ -1,0 +1,15 @@
+package chapter21_mini_project_exercise.repository;
+
+import java.util.List;
+
+import chapter21_mini_project_exercise.model.BookVo;
+
+public interface BookMarketRepository {
+	boolean insert(BookVo book);
+	List<BookVo> selectAll();
+	BookVo select(String bid);
+	void update(BookVo book);
+	void remove(String bid);
+	void remove(BookVo book);
+	int getCount();
+}
