@@ -8,7 +8,7 @@ public interface BookMarketService {
 	void menuCartItemList();
 	void menuCartClear();
 	void menuCartAddItem();
-	void menuCartRemoveItemCoutn();
+	void menuCartRemoveItemCount();
 	void menuCartRemoveItem();
 	void menuCartBill();
 	void menuExit();

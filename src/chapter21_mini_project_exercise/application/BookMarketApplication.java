@@ -50,7 +50,7 @@ public class BookMarketApplication {
 			case MENU_CART_ITEM_LIST			:	service.menuCartItemList();			break;
 			case MENU_CART_CLEAR				:	service.menuCartClear();			break;
 			case MENU_CART_ADD_ITEM				:	service.menuCartAddItem();			break;
-			case MENU_CART_REMOVE_ITEM_COUNT	:	service.menuCartRemoveItemCoutn();	break;
+			case MENU_CART_REMOVE_ITEM_COUNT	:	service.menuCartRemoveItemCount();	break;
 			case MENU_CART_REMOVE_ITEM			:	service.menuCartRemoveItem();		break;
 			case MENU_CART_BILL					:	service.menuCartBill();				break;
 			case MENU_EXIT						:	service.menuExit();					break;
