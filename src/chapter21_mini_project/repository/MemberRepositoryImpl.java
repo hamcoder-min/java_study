@@ -29,7 +29,23 @@ public class MemberRepositoryImpl extends DBConn implements BookMarketRepository
 	
 	@Override
 	public String findId() {
-		return null;
+		String mid = null;
+		String sql = """
+				select 		mid 
+				from 		book_market_member
+				order by 	mdate desc
+				limit 		1
+				""";
+		try {
+			getPreparedStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				mid = rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return mid;
 	}
 	
 	@Override
@@ -69,7 +85,7 @@ public class MemberRepositoryImpl extends DBConn implements BookMarketRepository
 						, name
 						, address
 						, phone
-						, madate
+						, left(mdate, 10) as mdate
 				from 	book_market_member
 				where	mid = ?
 				""";

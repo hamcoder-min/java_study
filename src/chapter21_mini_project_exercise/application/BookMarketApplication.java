@@ -19,7 +19,7 @@ public class BookMarketApplication {
 	
 	
 	public BookMarketApplication() {
-		
+		showMenu();
 	}
 
 	
@@ -31,10 +31,10 @@ public class BookMarketApplication {
 		System.out.println("\t\tWelcome to Shopping Mall");
 		System.out.println("\t\tWelcome to Book Market!!");
 		System.out.println("********************************************************");
-		System.out.println("1. 고객정보 확인하기\t\t5. 장바구니의 항목 수량 줄이기");
-		System.out.println("2. 장바구니 상품 목록 보기\t	6. 장바구니의 항목 삭제하기");
-		System.out.println("3. 장바구니 비우기\t\t\t7. 영수증 표시하기");
-		System.out.println("4. 장바구니에 항목 추가하기\t\t8. 종료");
+		System.out.println("1. 고객정보 확인하기\t\t5. 장바구니의 항목 삭제하기");
+		System.out.println("2. 장바구니 상품 목록 보기\t	6. 영수증 표시하기");
+		System.out.println("3. 장바구니 비우기\t\t\t7. 종료");
+		System.out.println("4. 장바구니에 항목 추가하기");
 		System.out.println("********************************************************");
 		selectMenu();
 	}
