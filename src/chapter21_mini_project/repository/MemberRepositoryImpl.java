@@ -8,6 +8,7 @@ import db.DBConn;
 
 public class MemberRepositoryImpl extends DBConn implements BookMarketRepositoryInterface<MemberVo>{
 	
+	@Override
 	public int insert(MemberVo member) {
 		int rows = 0;
 		String sql = """
@@ -26,10 +27,12 @@ public class MemberRepositoryImpl extends DBConn implements BookMarketRepository
 		return rows;
 	}
 	
+	@Override
 	public String findId() {
 		return null;
 	}
 	
+	@Override
 	public List<MemberVo> findAll(){
 		List<MemberVo> list = null;
 		String sql = """
@@ -58,6 +61,7 @@ public class MemberRepositoryImpl extends DBConn implements BookMarketRepository
 		return list;
 	}
 	
+	@Override
 	public MemberVo find(String mid) {
 		MemberVo member = null;
 		String sql = """
@@ -87,16 +91,19 @@ public class MemberRepositoryImpl extends DBConn implements BookMarketRepository
 		return member;
 	}
 	
+	@Override
 	public int update(MemberVo member) {
 		int rows = 0;
 		return rows;
 	}
 	
+	@Override
 	public int remove(String id) {
 		int rows = 0;
 		return rows;
 	}
 	
+	@Override
 	public int removeAll() {
 		int rows = 0;
 		return rows;
