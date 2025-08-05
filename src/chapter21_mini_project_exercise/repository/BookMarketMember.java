@@ -1,4 +1,4 @@
-package chapter21_mini_project_exercise.repository.member;
+package chapter21_mini_project_exercise.repository;
 
 import java.util.ArrayList;
 import java.util.List;

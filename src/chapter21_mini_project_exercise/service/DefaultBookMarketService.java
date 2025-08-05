@@ -7,7 +7,7 @@ import chapter21_mini_project_exercise.application.BookMarketApplication;
 import chapter21_mini_project_exercise.model.BookVo;
 import chapter21_mini_project_exercise.model.CartVo;
 import chapter21_mini_project_exercise.model.MemberVo;
-import chapter21_mini_project_exercise.repository.cart.BookMarketCart;
+import chapter21_mini_project_exercise.repository.BookMarketCart;
 import db.GenericRepositoryInterface;
 
 public class DefaultBookMarketService implements BookMarketService{
@@ -35,7 +35,7 @@ public class DefaultBookMarketService implements BookMarketService{
 		member.setCustomerName(bma.scan.next());
 		System.out.print("연락처를 입력하세요 : ");
 		member.setPhone(bma.scan.next());
-		bma.showMenu();
+		bma.showMenu();	
 		return member;
 	}
 	
@@ -109,8 +109,6 @@ public class DefaultBookMarketService implements BookMarketService{
 			} else {
 				System.out.println("장바구니 담기에 실패했습니다 ㅠㅠ");
 			}
-				
-
 		}
 		
 		
@@ -143,7 +141,6 @@ public class DefaultBookMarketService implements BookMarketService{
 //		} else {
 //			System.out.println("❌ 등록된 도서가 존재하지 않습니다.");
 //		}
-		
 	}
 	
 	public void menuCartRemoveItemCount() {}
