@@ -1,6 +1,5 @@
 package chapter21_mini_project.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import chapter21_mini_project.model.MemberVo;
