@@ -3,12 +3,13 @@ package chapter21_mini_project_exercise.repository.cart;
 import java.util.ArrayList;
 import java.util.List;
 
+import chapter21_mini_project_exercise.model.BookVo;
 import chapter21_mini_project_exercise.model.CartVo;
 import db.DBConn;
 import db.GenericRepositoryInterface;
 
 public class BookMarketCart extends DBConn implements GenericRepositoryInterface<CartVo>{
-	
+	private List<BookVo> list = new ArrayList<BookVo>();
 	
 	
 	public int insert(CartVo cart) {
@@ -101,7 +102,18 @@ public class BookMarketCart extends DBConn implements GenericRepositoryInterface
 		String sql = """
 				update book_market_cart
 					set title = ?, author = ?, price = ?
+				where isbn = ?
 				""";
+		try {
+			getPreparedStatement(sql);
+			pstmt.setString(1, cart.getTitle());
+			pstmt.setString(2, cart.getAuthor());
+			pstmt.setInt(3, cart.getPrice());
+			pstmt.setString(4, cart.getIsbn());
+			rows = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return rows;
 	}
@@ -115,6 +127,20 @@ public class BookMarketCart extends DBConn implements GenericRepositoryInterface
 		try {
 			getPreparedStatement(sql);
 			pstmt.setString(1, isbn);
+			rows = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return rows;
+	}
+	
+	public int removeAll() {
+		int rows = 0;
+		String sql = """
+				delete from book_market_cart
+				""";
+		try {
+			getPreparedStatement(sql);
 			rows = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

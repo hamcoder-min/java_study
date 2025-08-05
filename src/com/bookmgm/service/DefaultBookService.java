@@ -183,8 +183,8 @@ public class DefaultBookService implements BookService{
 			System.out.print("도서번호 > ");
 			BookVo book = repository.find(bma.scan.next());
 			if(book != null) {
-					repository.remove(book.getBid());
-					System.out.println("✅ 도서가 삭제되었습니다.");
+				repository.remove(book.getBid());
+				System.out.println("✅ 도서가 삭제되었습니다.");
 			}
 		} else {
 			System.out.println("❌ 등록된 도서가 존재하지 않습니다.");

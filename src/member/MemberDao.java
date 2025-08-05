@@ -12,7 +12,7 @@ public class MemberDao extends DBConn implements GenericInterface<MemberVo>{
 	//CRUD 기능 구현 - 애플리케이션 기반의 DB 연동은 기본적으로 Autocommit = true 임 -> 바로 적용됨 
 	/**
 	 * 데이터 추가
-	 * @param memberVo
+	 * @param MemberVo
 	 */
 	@Override
 	public int insert(MemberVo member) {

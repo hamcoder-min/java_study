@@ -100,7 +100,7 @@ public class InMemoryBookRepository extends DBConn implements GenericRepositoryI
 		String sql = """
 					update book_tj
 						set title = ?, author = ?, price = ?
-						where bid = ?
+					where bid = ?
 				""";
 		try {
 			getPreparedStatement(sql);
