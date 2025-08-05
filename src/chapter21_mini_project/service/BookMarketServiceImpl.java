@@ -70,7 +70,16 @@ public class BookMarketServiceImpl implements BookMarketService{
 	}
 	
 	@Override
-	public void menuCartClear() {}
+	public void menuCartClear() {
+		CartVo cart = cartRepository.find(mid);
+		if(cart != null) {
+			System.out.println("장바구니의 모든 항목을 삭제합니다! (Y | N)");
+			if(bms.scan.next().equals("Y")) {
+				System.out.println("삭제 완료!");
+				cartRepository.removeAll();
+			}
+		}
+	}
 	
 	@Override
 	public void menuCartAddItem() {}
