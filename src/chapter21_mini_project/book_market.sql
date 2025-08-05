@@ -126,6 +126,5 @@ set new.cid = concat('C', lpad((max_code + 1), 3, '0'));
 end $$
 delimiter ;
 /*******************************************************************/
-select bid from book_market_books
-				order by bdate desc
-				limit 1;
+select * from book_market_member;
+select * from book_market_cart;

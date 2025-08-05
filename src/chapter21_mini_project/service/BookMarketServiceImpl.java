@@ -1,5 +1,7 @@
 package chapter21_mini_project.service;
 
+import java.util.List;
+
 import chapter21_mini_project.application.BookMarketSystem;
 import chapter21_mini_project.model.BookVo;
 import chapter21_mini_project.model.CartVo;
@@ -58,7 +60,14 @@ public class BookMarketServiceImpl implements BookMarketService{
 	}
 	
 	@Override
-	public void menuCartList() {}
+	public void menuCartList() {
+		List<CartVo> list = cartRepository.findAll();
+		for(CartVo cart : list) {
+			System.out.print("[" + cart.getCid() + "]\t");
+			System.out.print(cart.getBid() + "\t");
+			System.out.print(cart.getQty() + "\n");
+		}
+	}
 	
 	@Override
 	public void menuCartClear() {}
