@@ -70,9 +70,24 @@ delimiter ;
 /*******************************************************************/
 select * from information_schema.triggers;
 insert into book_market_books(title, author, price, info, category, bdate)
-	values('자바의정석', '남궁성', 20000, '자바의 정석입니다', 'IT', now());
+	values('자바의정석', '남궁성', 20000, '자바의 정석입니다', 'IT전문서', now());
+insert into book_market_books(title, author, price, info, category, bdate)
+	values('쉽게 배우는 JSP 웹 프로그래밍', '송미영', 27000, '단계별로 쇼핑몰을 구현하며 배우는 JSP 웹 프로그래밍', 'IT전문서', now());
+insert into book_market_books(title, author, price, info, category, bdate)
+	values('안드로이드 프로그래밍', '우재남', 33000, '실습 단계별 명쾌한 멘토링!', 'IT전문서', now());
+
+insert into book_market_member(mid, mname, phone, email, address, register_date)
+	values('hong', '홍길동', '010-1234-5678', 'hong@mail.com', '서울 영등포구', curdate());
+insert into book_market_member(mid, mname, phone, email, address, register_date)
+	values('kim', '김유신', '010-9876-5678', 'shin@mail.com', '서울 강남구', curdate());
+insert into book_market_member(mid, mname, phone, email, address, register_date)
+	values('sun', '김민선', '010-7777-7777', 'sunny@mail.com', '대구 수성구', curdate());
+
+select * from book_market_member;
 select * from book_market_books;
+
 drop trigger trg_book_market_books;
+
 set sql_safe_updates = 0;
 delete from book_market_books
 	where author = '남궁성';
